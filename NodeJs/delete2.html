@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+  <script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+  <script type="text/javascript">
+$(document).ready(function(){
+  $( "#delete" ).click(function() {
+
+    var id =  $('#id1').val();
+    $.ajax({
+      url: "/delete_data",
+      type: 'POST',
+      data:{
+        rekt : id
+      },
+      success: function(result){
+        //alert(result);
+
+    }});
+  });
+});
+  </script>
+</head>
+<body>
+  <input type="text" name="name3" id="id1" value="" placeholder="Введите ID">
+  <button type="button" id="delete">Delete</button>
+  <button type="button" name="button" id="go" onclick="window.location.replace('http://localhost:3000/')">Go to Table</button>
+</body>
+</html>

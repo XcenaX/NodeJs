@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+  <script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+  <title>Document</title>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      
+
+    $( "#add" ).click(function() {
+
+      name1=$( '#name1' ).val();
+      name2=$( '#name2' ).val();
+      name3=$( '#name3' ).val();
+
+      $.ajax({
+        url: "/add_data",
+        type: 'POST',
+        data:{
+          name1: name1,
+          name2: name2,
+          name3: name3
+        },
+        success: function(result){
+          //alert(result);
+
+      }});
+
+    });
+
+
+   });
+  </script>
+</head>
+<body>
+
+  <input type="text" name="name1" id="name1" value="">
+  <input type="text" name="name2" id="name2" value="">
+  <input type="text" name="name3" id="name3" value="">
+  <button type="button" name="button" id="add">ADD</button>
+  <button type="button" name="button" id="go" onclick="window.location.replace('http://localhost:3000/')">Go to Table</button>
+
+</body>
+</html>
